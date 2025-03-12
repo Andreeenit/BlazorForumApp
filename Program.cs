@@ -1,4 +1,6 @@
 using BlazorForum.Components;
+using BlazorForum.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,7 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.AddDbContext<AppDBContext>(options =>
+options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

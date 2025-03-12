@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace BlazorForum.Models;
 
-public class Threads
+public class Thread
 {
     public int Id { get; set; }
     public string Title { get; set; } = string.Empty;
