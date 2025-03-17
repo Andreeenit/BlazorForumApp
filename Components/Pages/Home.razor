@@ -1,7 +1,39 @@
 ﻿@page "/"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+@using BlazorForum.Models
 
-<PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h3>Forum Categories</h3>
 
-Welcome to your new app.
+@if (categories == null)
+{
+    <p>Loading categories...</p>
+}
+else
+{
+    <ul>
+    @foreach (var category in categories)
+        {
+            <li>
+                <button @onclick="() => ShowThreads(category.CategoryId)">
+                    @category.CategoryName
+                </button>
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private List<Category> categories = new List<Category>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        categories = await Http.GetFromJsonAsync<List<Category>>("api/forum/getcategories") ?? new List<Category>();
+    }
+
+    private void ShowThreads(int categoryId)
+    {
+        Navigation.NavigateTo($"/category/{categoryId}");
+    }
+}

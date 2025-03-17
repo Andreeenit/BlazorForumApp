@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/BlazorForum.g16ehz1sg9.bundle.scp.css"
     },
     {
+      "Id": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/wwwroot/Index.html",
+      "PackagePath": "staticwebassets/Index.html"
+    },
+    {
       "Id": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/wwwroot/app.css",
       "PackagePath": "staticwebassets/app.css"
     },

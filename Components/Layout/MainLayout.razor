@@ -1,23 +1,70 @@
 ﻿@inherits LayoutComponentBase
+@using Microsoft.AspNetCore.Components.Authorization
+@using BlazorForum.Models
+@using Microsoft.AspNetCore.Components
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<PageTitle>André Forum</PageTitle>
+
+<div class="main-layout">
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <NavLink href="/" class="nav-link" activeClass="active">Home</NavLink>
+                </li>
+                <li>
+                    <NavLink href="/forum" class="nav-link" activeClass="active">Forum</NavLink>
+                </li>
+
+                @if (isAuthenticated)
+                {
+                    <li>
+                        <NavLink href="/profile" class="nav-link" activeClass="active">Profile</NavLink>
+                    </li>
+                    <li>
+                        <NavLink href="/logout" class="nav-link" activeClass="active" @onclick="HandleLogout">Logout
+                        </NavLink>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <NavLink href="/login" class="nav-link" activeClass="active">Login</NavLink>
+                    </li>
+                    <li>
+                        <NavLink href="/register" class="nav-link" activeClass="active">Register Here</NavLink>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </header>
 
     <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
+        @Body
     </main>
+
+    <footer>
+        <p>© André ForumApp 2025.</p>
+        <a href="https://github.com/Andreeenit/BlazorForumApp" target="_blank">Visit our GitHub</a>
+    </footer>
 </div>
 
-<div id="blazor-error-ui" data-nosnippet>
-    An unhandled error has occurred.
-    <a href="." class="reload">Reload</a>
-    <span class="dismiss">🗙</span>
-</div>
+@code {
+    private bool isAuthenticated = false;
+
+    [Inject] private AuthenticationStateProvider AuthenticationStateProvider { get; set; } = null!;
+    [Inject] private NavigationManager Navigation { get; set; } = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        isAuthenticated = user.Identity?.IsAuthenticated ?? false;
+    }
+
+    private void HandleLogout()
+    {
+        Navigation.NavigateTo("/login", forceLoad: true);
+    }
+}

@@ -1,0 +1,85 @@
+@page "/forum"
+@inject ForumService ForumServices
+@inject NavigationManager Nav
+@inject AuthenticationStateProvider AuthStateProvider
+@using BlazorForum.Models
+@using Microsoft.AspNetCore.Components.Authorization
+
+<CascadingAuthenticationState>
+    <AuthorizeView>
+        <Authorized>
+            <h3>Forum</h3>
+
+            <div class="forum-container">
+                <div class="categories">
+                    <h4>Categories</h4>
+                    @if (categories == null)
+                    {
+                        <p>Loading...</p>
+                    }
+                    else
+                    {
+                        @foreach (var category in categories)
+                        {
+                            <button @onclick="() => SelectCategory(category.Id)">@category.Name</button>
+                        }
+                    }
+                </div>
+
+                <div class="threads">
+                    <h4>Threads</h4>
+                    @if (selectedCategory == null)
+                    {
+                        <p>Select a category to view threads.</p>
+                    }
+                    else
+                    {
+                        @if (threads == null)
+                        {
+                            <p>Loading threads...</p>
+                        }
+                        else
+                        {
+                            @foreach (var thread in threads)
+                            {
+                                <p><a @onclick="() => GoToThread(thread.Id)">@thread.Title</a> - @threads.User.UserName</p>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </Authorized>
+
+        <NotAuthorized>
+            <p>You must be logged in to view the forum.</p>
+            <button @onclick="RedirectToLogin">Go to Login</button>
+        </NotAuthorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
+
+@code {
+    private List<Category>? categories;
+    private List<Thread>? threads;
+    private int? selectedCategory;
+
+    protected override async Task OnInitializedAsync()
+    {
+        categories = await ForumServices.GetCategoriesAsync();
+    }
+
+    private async Task SelectCategory(int categoryId)
+    {
+        selectedCategory = categoryId;
+        threads = await ForumServices.GetThreadsByCategoryAsync(categoryId);
+    }
+
+    private void GoToThread(int threadId)
+    {
+        Nav.NavigateTo($"/thread/{threadId}");
+    }
+
+    private void RedirectToLogin()
+    {
+        Nav.NavigateTo("/");
+    }
+}
