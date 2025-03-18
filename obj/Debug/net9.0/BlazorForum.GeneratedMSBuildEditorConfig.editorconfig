@@ -32,10 +32,6 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/Components/Pages/Categories.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9DYXRlZ29yaWVzLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/Components/Pages/CategoryThreads.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9DYXRlZ29yeVRocmVhZHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

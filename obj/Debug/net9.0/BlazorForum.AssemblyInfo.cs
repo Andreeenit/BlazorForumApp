@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BlazorForum")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f71229582d72eddeacb0fd382dd0e081292c81a1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2904118a44bd95cfd28783bda9ab4d0e04fc126")]
 [assembly: System.Reflection.AssemblyProductAttribute("BlazorForum")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BlazorForum")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
