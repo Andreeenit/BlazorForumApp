@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using BlazorForum.Models;
 using BlazorForum.Data;
@@ -6,13 +5,23 @@ using Thread = BlazorForum.Models.Thread;
 using BlazorForum.Service;
 
 public class ForumServices : IForumServices
+
 {
     private readonly AppDBContext _context;
     public ForumServices(AppDBContext context)
     {
         _context = context;
     }
+    public async Task<List<Comment>> GetCommentsAsync(int threadId, string userId)
+    {
+        return await _context.Comments
+        .Where(c => c.ThreadID == threadId)
+        .Include(c => c.UserId == userId)
+        .Include(c => c.Reply != null)
+        .ToListAsync();
 
+
+    }
     //Får alla Categories.
     public async Task<List<Category>> GetCategoriesAsync()
     {
@@ -46,6 +55,7 @@ public class ForumServices : IForumServices
     //Skapar en thread.
     public async Task<bool> CreateThreadAsync(Thread thread)
     {
+        thread.CreatedDate = DateTime.UtcNow;
         _context.Threads.Add(thread);
         await _context.SaveChangesAsync();
         return true;
@@ -77,8 +87,8 @@ public class ForumServices : IForumServices
         return true;
     }
 
-    //Skapar en Comment, där du även kan skapa en reply(På en ParentComment.)
-    public async Task<bool> CreateCommentsAsync(Comment comment)
+    //Skapar en Comment,(Då blir den Comment som får en reply, en ParentComment.)
+    public async Task<bool> CreateCommentAsync(Comment comment)
     {
         if (comment.ParentCommentId.HasValue)
         {
@@ -86,6 +96,7 @@ public class ForumServices : IForumServices
             if (parentComment == null) return false;
         }
 
+        comment.CreatedDate = DateTime.UtcNow;
         _context.Comments.Add(comment);
         await _context.SaveChangesAsync();
         return true;
@@ -121,10 +132,9 @@ public class ForumServices : IForumServices
     public async Task<List<Comment>> GetRepliesAsync(int parentCommentId)
     {
         return await _context.Comments
-            .Where(c => c.ParentCommentId == parentCommentId)
-            .Include(c => c.User)
-            .ToListAsync();
+        .Where(c => c.ParentCommentId == parentCommentId)
+        .Include(c => c.User)
+        .ToListAsync();
     }
-
 
 }

@@ -11,10 +11,10 @@ public class Comment
     public DateTime CreatedDate { get; set; }
     public int? ParentCommentId { get; set; }
     public Comment? ParentComment { get; set; }
-    [Required] public int ForumThreadID { get; set; }
-    public Thread? ForumThread { get; set; }
+    [Required] public int ThreadID { get; set; }
+    public Thread? Thread { get; set; }
     [Required] public string? UserId { get; set; }
     [ForeignKey("UserId")] public IdentityUser? User { get; set; }
-    public List<Comment>? Replies { get; set; }
+    public List<Comment>? Reply { get; set; }
 
 }

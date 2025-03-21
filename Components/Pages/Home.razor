@@ -1,7 +1,8 @@
 ﻿@page "/"
-@inject HttpClient Http
+@inject IForumServices ForumServices
 @inject NavigationManager Navigation
 @using BlazorForum.Models
+@using BlazorForum.Service
 
 
 <h3>Forum Categories</h3>
@@ -27,13 +28,9 @@ else
 @code {
     private List<Category> categories = new List<Category>();
 
-    protected override async Task OnInitializedAsync()
-    {
-        categories = await Http.GetFromJsonAsync<List<Category>>("api/forum/getcategories") ?? new List<Category>();
-    }
 
     private void ShowThreads(int categoryId)
     {
         Navigation.NavigateTo($"/category/{categoryId}");
     }
-}
+} using BlazorForum.Service;

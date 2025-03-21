@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pxXyaIxDCsFrVrcFv4sSWIU2X5F7ZT6Rs6lZ7ZubX/k=",
+  "Hash": "E7YpwOuRtpLkN7wcr+M1caCT3z9SzBZOFIxKKDalLks=",
   "Source": "BlazorForum",
   "BasePath": "_content/BlazorForum",
   "Mode": "Default",
@@ -1949,27 +1949,6 @@
       "OriginalItemSpec": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/obj/Debug/net9.0/compressed/aovrclxukb-g3w68nu64j.gz",
-      "SourceId": "BlazorForum",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/obj/Debug/net9.0/compressed/",
-      "BasePath": "_content/BlazorForum",
-      "RelativePath": "Index#[.{fingerprint=g3w68nu64j}]?.html.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/wwwroot/Index.html",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "8wnbw4h4l1",
-      "Integrity": "SPJG1etyffnmYuTyTTq6W5h9h1OQDjtdZM060VXXbPE=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/wwwroot/Index.html"
-    },
-    {
       "Identity": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/obj/Debug/net9.0/compressed/avqbvwv4p7-r4e9w2rdcm.gz",
       "SourceId": "BlazorForum",
       "SourceType": "Discovered",
@@ -3734,27 +3713,6 @@
       "OriginalItemSpec": "wwwroot/favicon.png"
     },
     {
-      "Identity": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/wwwroot/Index.html",
-      "SourceId": "BlazorForum",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/wwwroot/",
-      "BasePath": "_content/BlazorForum",
-      "RelativePath": "Index#[.{fingerprint}]?.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "g3w68nu64j",
-      "Integrity": "BPTfCi5LjJTZT/GcCo/tTgDMu1hGnufdHVAnerEeb8U=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Index.html"
-    },
-    {
       "Identity": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
       "SourceId": "BlazorForum",
       "SourceType": "Discovered",
@@ -5003,7 +4961,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 04:32:29 GMT"
+          "Value": "Fri, 21 Mar 2025 19:15:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5056,7 +5014,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 04:32:29 GMT"
+          "Value": "Fri, 21 Mar 2025 19:15:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5093,7 +5051,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 04:32:29 GMT"
+          "Value": "Fri, 21 Mar 2025 19:15:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5140,7 +5098,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 04:32:29 GMT"
+          "Value": "Fri, 21 Mar 2025 19:15:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5201,7 +5159,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 04:32:29 GMT"
+          "Value": "Fri, 21 Mar 2025 19:15:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5246,7 +5204,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 04:32:29 GMT"
+          "Value": "Fri, 21 Mar 2025 19:15:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5301,7 +5259,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 04:32:29 GMT"
+          "Value": "Fri, 21 Mar 2025 19:15:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5362,7 +5320,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 04:32:29 GMT"
+          "Value": "Fri, 21 Mar 2025 19:15:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5407,7 +5365,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 04:32:29 GMT"
+          "Value": "Fri, 21 Mar 2025 19:15:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5462,7 +5420,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 04:32:29 GMT"
+          "Value": "Fri, 21 Mar 2025 19:15:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5515,7 +5473,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 04:32:29 GMT"
+          "Value": "Fri, 21 Mar 2025 19:15:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5552,7 +5510,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 04:32:29 GMT"
+          "Value": "Fri, 21 Mar 2025 19:15:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14258,304 +14216,6 @@
         {
           "Name": "integrity",
           "Value": "sha256-F1wMlgb/juW08DFUssW6Pm9EBKfjXXRiSK0F5FgXxJU="
-        }
-      ]
-    },
-    {
-      "Route": "Index.g3w68nu64j.html",
-      "AssetFile": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/obj/Debug/net9.0/compressed/aovrclxukb-g3w68nu64j.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.002132196162"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "468"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"SPJG1etyffnmYuTyTTq6W5h9h1OQDjtdZM060VXXbPE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 20:29:26 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"BPTfCi5LjJTZT/GcCo/tTgDMu1hGnufdHVAnerEeb8U=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "g3w68nu64j"
-        },
-        {
-          "Name": "label",
-          "Value": "Index.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-BPTfCi5LjJTZT/GcCo/tTgDMu1hGnufdHVAnerEeb8U="
-        }
-      ]
-    },
-    {
-      "Route": "Index.g3w68nu64j.html",
-      "AssetFile": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/wwwroot/Index.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "952"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"BPTfCi5LjJTZT/GcCo/tTgDMu1hGnufdHVAnerEeb8U=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 20:29:26 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "g3w68nu64j"
-        },
-        {
-          "Name": "label",
-          "Value": "Index.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-BPTfCi5LjJTZT/GcCo/tTgDMu1hGnufdHVAnerEeb8U="
-        }
-      ]
-    },
-    {
-      "Route": "Index.g3w68nu64j.html.gz",
-      "AssetFile": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/obj/Debug/net9.0/compressed/aovrclxukb-g3w68nu64j.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "468"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"SPJG1etyffnmYuTyTTq6W5h9h1OQDjtdZM060VXXbPE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 20:29:26 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "g3w68nu64j"
-        },
-        {
-          "Name": "label",
-          "Value": "Index.html.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-SPJG1etyffnmYuTyTTq6W5h9h1OQDjtdZM060VXXbPE="
-        }
-      ]
-    },
-    {
-      "Route": "Index.html",
-      "AssetFile": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/obj/Debug/net9.0/compressed/aovrclxukb-g3w68nu64j.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.002132196162"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "468"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"SPJG1etyffnmYuTyTTq6W5h9h1OQDjtdZM060VXXbPE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 20:29:26 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"BPTfCi5LjJTZT/GcCo/tTgDMu1hGnufdHVAnerEeb8U=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-BPTfCi5LjJTZT/GcCo/tTgDMu1hGnufdHVAnerEeb8U="
-        }
-      ]
-    },
-    {
-      "Route": "Index.html",
-      "AssetFile": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/wwwroot/Index.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "952"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"BPTfCi5LjJTZT/GcCo/tTgDMu1hGnufdHVAnerEeb8U=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 20:29:26 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-BPTfCi5LjJTZT/GcCo/tTgDMu1hGnufdHVAnerEeb8U="
-        }
-      ]
-    },
-    {
-      "Route": "Index.html.gz",
-      "AssetFile": "/Users/andreds/Documents/Development/OPF/BlazorForum/BlazorForum/obj/Debug/net9.0/compressed/aovrclxukb-g3w68nu64j.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "468"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"SPJG1etyffnmYuTyTTq6W5h9h1OQDjtdZM060VXXbPE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 20:29:26 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-SPJG1etyffnmYuTyTTq6W5h9h1OQDjtdZM060VXXbPE="
         }
       ]
     },

@@ -1,19 +1,18 @@
 @page "/forum"
-@inject ForumService ForumServices
+@inject IForumServices ForumServices
 @inject NavigationManager Nav
 @inject AuthenticationStateProvider AuthStateProvider
 @using BlazorForum.Models
-@using Microsoft.AspNetCore.Components.Authorization
+@using BlazorForum.Service
 
 <CascadingAuthenticationState>
     <AuthorizeView>
         <Authorized>
             <h3>Forum</h3>
-
             <div class="forum-container">
                 <div class="categories">
                     <h4>Categories</h4>
-                    @if (categories == null)
+                    @if (categories.Count == 0)
                     {
                         <p>Loading...</p>
                     }
@@ -21,20 +20,20 @@
                     {
                         @foreach (var category in categories)
                         {
-                            <button @onclick="() => SelectCategory(category.Id)">@category.Name</button>
+                            <button @onclick="() => SelectCategory(category.CategoryId)">@category.CategoryName</button>
                         }
                     }
                 </div>
 
                 <div class="threads">
                     <h4>Threads</h4>
-                    @if (selectedCategory == null)
+                    @if (selectedCategory == -1)
                     {
                         <p>Select a category to view threads.</p>
                     }
                     else
                     {
-                        @if (threads == null)
+                        @if (threads.Count == 0)
                         {
                             <p>Loading threads...</p>
                         }
@@ -42,14 +41,16 @@
                         {
                             @foreach (var thread in threads)
                             {
-                                <p><a @onclick="() => GoToThread(thread.Id)">@thread.Title</a> - @threads.User.UserName</p>
+                                <p>
+                                    <a @onclick="() => GoToThread(thread.Id)">@thread.Title</a>
+                                    - @(thread.User?.UserName ?? "Unknown User")
+                                </p>
                             }
                         }
                     }
                 </div>
             </div>
         </Authorized>
-
         <NotAuthorized>
             <p>You must be logged in to view the forum.</p>
             <button @onclick="RedirectToLogin">Go to Login</button>
@@ -58,19 +59,19 @@
 </CascadingAuthenticationState>
 
 @code {
-    private List<Category>? categories;
-    private List<Thread>? threads;
-    private int? selectedCategory;
+    private List<Category> categories = new();
+    private List<Thread> threads = new();
+    private int selectedCategory = -1;
 
     protected override async Task OnInitializedAsync()
     {
-        categories = await ForumServices.GetCategoriesAsync();
+        categories = await ForumServices.GetCategoriesAsync() ?? new List<Category>();
     }
 
     private async Task SelectCategory(int categoryId)
     {
         selectedCategory = categoryId;
-        threads = await ForumServices.GetThreadsByCategoryAsync(categoryId);
+        threads = await ForumServices.GetThreadsByCategoryAsync(categoryId) ?? new List<Thread>();
     }
 
     private void GoToThread(int threadId)

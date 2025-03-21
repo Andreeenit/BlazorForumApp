@@ -23,13 +23,15 @@ builder.Services.AddScoped(sp =>
     return new HttpClient { BaseAddress = new Uri(navigationManager.BaseUri) };
 });
 
-
 builder.Services.AddScoped<IForumServices, ForumServices>();
 
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+
+// Add RazorComponents with Interactive Server Components BEFORE builder.Build()
+builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
 var app = builder.Build();
 

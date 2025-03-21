@@ -1,0 +1,12 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@inject NavigationManager Navigation
+
+<button class="btn btn-danger" @onclick="HandleLogout">Logout</button>
+
+@code {
+    private async Task HandleLogout()
+    {
+        await SignInManager.SignOutAsync();
+        Navigation.NavigateTo("/");
+    }
+}
