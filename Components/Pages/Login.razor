@@ -1,6 +1,7 @@
-@page "/login"
+@page "/Login"
 @inject SignInManager<ApplicationUser> SignInManager
 @inject NavigationManager Navigation
+@layout MainLayout
 
 <h3>Login</h3>
 <EditForm Model="loginModel" OnValidSubmit="HandleLogin">

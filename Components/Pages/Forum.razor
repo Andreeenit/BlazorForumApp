@@ -1,9 +1,10 @@
-@page "/forum"
+@page "/Forum"
 @inject IForumServices ForumServices
 @inject NavigationManager Nav
 @inject AuthenticationStateProvider AuthStateProvider
 @using BlazorForum.Models
 @using BlazorForum.Service
+@layout MainLayout
 
 <CascadingAuthenticationState>
     <AuthorizeView>

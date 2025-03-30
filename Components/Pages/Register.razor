@@ -1,11 +1,14 @@
-@page "/register"
+@page "/Register"
 @inject UserManager<ApplicationUser> UserManager
 @inject SignInManager<ApplicationUser> SignInManager
 @inject NavigationManager Navigation
+@layout MainLayout
 
 <h3>Register</h3>
-<EditForm Model="registerModel" OnValidSubmit="HandleRegister">
+<EditForm Model="registerModel" OnValidSubmit="HandleRegister" FormName="registerForm">
     <DataAnnotationsValidator />
+    <ValidationSummary />
+
     <div class="mb-3">
         <label>Full Name</label>
         <InputText @bind-Value="registerModel.FullName" class="form-control" />

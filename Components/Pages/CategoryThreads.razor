@@ -1,7 +1,7 @@
-@page "/forum"
+@page "/Forum Categories"
 @using BlazorForum.Service
 @using Microsoft.EntityFrameworkCore
-
+@layout MainLayout
 @inject IForumServices ForumServices
 @inject NavigationManager Navigation
 @inject AuthenticationStateProvider AuthenticationStateProvider
@@ -9,7 +9,6 @@
 
 <h2>Forum Categories</h2>
 
-<!-- Show categories -->
 <div class="list-group">
     @foreach (var category in Categories)
     {
@@ -25,7 +24,7 @@
 
     <button class="btn btn-success my-2" @onclick="ShowCreateThreadForm">+ New Thread</button>
 
-    <!-- Show threads -->
+
     <ul class="list-group">
     @foreach (var thread in Threads)
         {

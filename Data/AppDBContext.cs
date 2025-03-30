@@ -3,18 +3,17 @@ using Microsoft.EntityFrameworkCore;
 using Thread = BlazorForum.Models.Thread;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace BlazorForum.Data;
-
-public class AppDBContext : IdentityDbContext<ApplicationUser>
+namespace BlazorForum.Data
 {
-    public AppDBContext(DbContextOptions<AppDBContext> options)
-     : base(options)
+
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+        : base(options) { }
+
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Thread> Threads { get; set; }
 
     }
-
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<Comment> Comments { get; set; }
-    public DbSet<Thread> Threads { get; set; }
-
 }

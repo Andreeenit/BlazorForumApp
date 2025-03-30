@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Authorization
+@using BlazorForum.Components
+@inject NavigationManager Navigation
+
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="typeof(MainLayout)" />
+        </Found>
+        <NotFound>
+            <p>Page not found</p>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>

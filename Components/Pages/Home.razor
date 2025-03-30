@@ -3,7 +3,7 @@
 @inject NavigationManager Navigation
 @using BlazorForum.Models
 @using BlazorForum.Service
-
+@layout MainLayout
 
 <h3>Forum Categories</h3>
 
@@ -33,4 +33,4 @@ else
     {
         Navigation.NavigateTo($"/category/{categoryId}");
     }
-} using BlazorForum.Service;
+}
