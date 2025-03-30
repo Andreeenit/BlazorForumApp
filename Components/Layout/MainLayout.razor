@@ -5,50 +5,24 @@
 
 <PageTitle>André Forum</PageTitle>
 
+<link href="css/MainLayout.css" rel="stylesheet" />
+<link href="css/NavMenu.css" rel="stylesheet" />
+
 <div class="main-layout">
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    <NavLink href="/" class="nav-link" activeClass="active">Home</NavLink>
-                </li>
-                <li>
-                    <NavLink href="/forum" class="nav-link" activeClass="active">Forum</NavLink>
-                </li>
+    <div class="sidebar">
+        <NavMenu />
+    </div>
 
-                @if (isAuthenticated)
-                {
-                    <li>
-                        <NavLink href="/profile" class="nav-link" activeClass="active">Profile</NavLink>
-                    </li>
-                    <li>
-                        <NavLink href="/logout" class="nav-link" activeClass="active" @onclick="HandleLogout">Logout
-                        </NavLink>
-                    </li>
-                }
-                else
-                {
-                    <li>
-                        <NavLink href="/login" class="nav-link" activeClass="active">Login</NavLink>
-                    </li>
-                    <li>
-                        <NavLink href="/register" class="nav-link" activeClass="active">Register Here</NavLink>
-                    </li>
-                }
-            </ul>
-        </nav>
-    </header>
+    <div class="content" <main>
+            @Body
+        </main>
 
-    <main>
-        @Body
-    </main>
-
-    <footer>
-        <p>© André ForumApp 2025.</p>
-        <a href="https://github.com/Andreeenit/BlazorForumApp" target="_blank">Visit our GitHub</a>
-    </footer>
+        <footer>
+            <p>© André ForumApp 2025.</p>
+            <a href="https://github.com/Andreeenit/BlazorForumApp" target="_blank">Visit our GitHub</a>
+        </footer>
+    </div>
 </div>
-
 @code {
     private bool isAuthenticated = false;
 

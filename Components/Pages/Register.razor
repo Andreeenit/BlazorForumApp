@@ -1,53 +1,63 @@
-@page "/register"
-@inject HttpClient Http
+@page "/Register"
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
 @inject NavigationManager Navigation
+@layout MainLayout
 
 <h3>Register</h3>
-
-<EditForm Model="registerModel" OnValidSubmit="HandleRegister">
+<EditForm Model="registerModel" OnValidSubmit="HandleRegister" FormName="registerForm">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
-    <div>
-        <label for="email">Email:</label>
-        <InputText id="email" @bind-Value="registerModel.Email" class="form-control" />
+    <div class="mb-3">
+        <label>Full Name</label>
+        <InputText @bind-Value="registerModel.FullName" class="form-control" />
     </div>
-
-    <div>
-        <label for="password">Password:</label>
-        <InputText id="password" @bind-Value="registerModel.Password" class="form-control" />
+    <div class="mb-3">
+        <label>Email</label>
+        <InputText @bind-Value="registerModel.Email" class="form-control" />
     </div>
-
-    <div>
-        <label for="confirmPassword">Confirm Password:</label>
-        <InputText id="confirmPassword" @bind-Value="registerModel.ConfirmPassword" class="form-control" />
+    <div class="mb-3">
+        <label>Password</label>
+        <InputText @bind-Value="registerModel.Password" type="password" class="form-control" />
     </div>
-
-    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-success">Register</button>
 </EditForm>
 
+@if (ErrorMessage is not null)
+{
+    <p class="text-danger">@ErrorMessage</p>
+}
+
 @code {
-    private RegisterModel registerModel = new RegisterModel();
+    private RegisterModel registerModel = new();
+    private string? ErrorMessage;
 
     private async Task HandleRegister()
     {
-        var response = await Http.PostAsJsonAsync("api/account/register", registerModel);
-        if (response.IsSuccessStatusCode)
+        var user = new ApplicationUser
+            {
+                UserName = registerModel.Email,
+                Email = registerModel.Email,
+                FullName = registerModel.FullName
+            };
+
+        var result = await UserManager.CreateAsync(user, registerModel.Password);
+        if (result.Succeeded)
         {
-            Navigation.NavigateTo("/login");
+            await SignInManager.SignInAsync(user, isPersistent: false);
+            Navigation.NavigateTo("/");
         }
         else
         {
-
-
-            Console.WriteLine("Registration failed");
+            ErrorMessage = string.Join(" ", result.Errors.Select(e => e.Description));
         }
     }
 
-    public class RegisterModel
+    private class RegisterModel
     {
-        public string? Email { get; set; }
-        public string? Password { get; set; }
-        public string? ConfirmPassword { get; set; }
+        public string FullName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
     }
 }

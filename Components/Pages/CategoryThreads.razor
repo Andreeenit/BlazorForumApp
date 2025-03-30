@@ -1,0 +1,145 @@
+@page "/Forum Categories"
+@using BlazorForum.Service
+@using Microsoft.EntityFrameworkCore
+@layout MainLayout
+@inject IForumServices ForumServices
+@inject NavigationManager Navigation
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject UserManager<ApplicationUser> UserManager
+
+<h2>Forum Categories</h2>
+
+<div class="list-group">
+    @foreach (var category in Categories)
+    {
+        <button class="list-group-item list-group-item-action" @onclick="() => LoadThreads(category.CategoryId)">
+            @category.CategoryName
+        </button>
+    }
+</div>
+
+@if (SelectedCategoryId != 0)
+{
+    <h3>Threads in @SelectedCategoryName</h3>
+
+    <button class="btn btn-success my-2" @onclick="ShowCreateThreadForm">+ New Thread</button>
+
+
+    <ul class="list-group">
+    @foreach (var thread in Threads)
+        {
+            <li class="list-group-item">
+                <div>
+                    <strong>@thread.Title</strong> - by @thread.User?.UserName
+                </div>
+
+                <button class="btn btn-primary btn-sm" @onclick="() => ViewThread(thread.Id)">View</button>
+
+                @if (ThreadAuthorizations.TryGetValue(thread.Id, out var isAuthorized) && isAuthorized)
+                {
+                    <button class="btn btn-warning btn-sm" @onclick="() => EditThread(thread)">Edit</button>
+                    <button class="btn btn-danger btn-sm" @onclick="() => DeleteThread(thread.Id)">Delete</button>
+                }
+            </li>
+        }
+    </ul>
+}
+
+@if (ShowThreadForm)
+{
+    <h3>Create New Thread</h3>
+    <input @bind="NewThread.Title" class="form-control" placeholder="Title" />
+    <textarea @bind="NewThread.Content" class="form-control" placeholder="Write something..."></textarea>
+    <button class="btn btn-primary my-2" @onclick="CreateThread">Submit</button>
+    <button class="btn btn-secondary my-2" @onclick="CancelCreateThread">Cancel</button>
+}
+
+@code {
+    private List<Category> Categories = new();
+    private List<Thread> Threads = new();
+    private int SelectedCategoryId = 0;
+    private string SelectedCategoryName = string.Empty;
+    private bool ShowThreadForm = false;
+    private Thread NewThread = new();
+    private Dictionary<int, bool> ThreadAuthorizations = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Categories = await ForumServices.GetCategoriesAsync();
+    }
+
+    private async Task LoadThreads(int categoryId)
+    {
+        SelectedCategoryId = categoryId;
+        SelectedCategoryName = Categories.First(c => c.CategoryId == categoryId).CategoryName;
+        Threads = await ForumServices.GetThreadsByCategoryAsync(categoryId);
+
+        await CheckThreadAuthorization();
+    }
+
+    private async Task CheckThreadAuthorization()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        var userId = user.FindFirst("sub")?.Value;
+
+        ThreadAuthorizations.Clear();
+
+        foreach (var thread in Threads)
+        {
+            ThreadAuthorizations[thread.Id] = user.Identity?.IsAuthenticated == true && thread.UserId == userId;
+        }
+
+        StateHasChanged();
+    }
+
+    private void EditThread(Thread thread)
+    {
+        Navigation.NavigateTo($"/edit-thread/{thread.Id}");
+    }
+
+    private async Task CreateThread()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        var appUser = await UserManager.GetUserAsync(user);
+
+        if (appUser == null || SelectedCategoryId == 0) return;
+
+        NewThread.CategoryId = SelectedCategoryId;
+        NewThread.UserId = appUser.Id;
+        NewThread.CreatedDate = DateTime.UtcNow;
+
+        await ForumServices.CreateThreadAsync(NewThread);
+        ShowThreadForm = false;
+        NewThread = new Thread();
+        await LoadThreads(SelectedCategoryId);
+    }
+
+    private async Task DeleteThread(int threadId)
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        var appUser = await UserManager.GetUserAsync(user);
+
+        if (appUser == null) return;
+
+        await ForumServices.DeleteThreadAsync(threadId, appUser.Id);
+        await LoadThreads(SelectedCategoryId);
+    }
+
+    private void ShowCreateThreadForm()
+    {
+        ShowThreadForm = true;
+    }
+
+    private void CancelCreateThread()
+    {
+        ShowThreadForm = false;
+    }
+
+    private void ViewThread(int threadId)
+    {
+        Navigation.NavigateTo($"/thread/{threadId}");
+    }
+}

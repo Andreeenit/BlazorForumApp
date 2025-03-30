@@ -1,0 +1,21 @@
+# Ignore build output directories
+bin/
+obj/
+
+# Ignore Visual Studio for Mac specific files
+.vscode/
+.vs/
+
+# User-specific files
+*.user
+*.suo
+*.swp
+*.db
+
+# Ignore application settings 
+appsettings.json
+appsettings.Development.json
+
+
+# Ignore package manager files
+*.nupkg
